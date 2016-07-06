@@ -108,6 +108,7 @@ public class DemoListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new RvAdapter(new ArrayList<>());
         adapter.openLoadMore(0, true); //一进来就加载更多了！！！
+//        adapter.openLoadAnimation(); //开启默认动画
         adapter.setOnLoadMoreListener
                 (() -> {
                             LogUtils.e("加载更多。。。。");

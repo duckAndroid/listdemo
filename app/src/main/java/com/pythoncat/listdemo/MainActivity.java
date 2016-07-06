@@ -8,6 +8,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     ThreadLocal<TextView> tv = new ThreadLocal<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,12 +16,18 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tvJump = (TextView) findViewById(R.id.jump);
         tv.set(tvJump);
-        assert tvJump!=null;
+        assert tvJump != null;
         tvJump.setText("我来啦。。。。");
         tvJump.setOnClickListener(v -> {
             startActivity(new Intent(this, DemoListActivity.class));
             finish();
         });
+
+        findViewById(R.id.button_linearlayout)
+                .setOnClickListener(v -> {
+                    startActivity(new Intent(this, LayoutActivity.class));
+                    finish();
+                });
     }
 
     @Override
