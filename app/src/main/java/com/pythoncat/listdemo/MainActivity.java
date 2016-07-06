@@ -20,13 +20,11 @@ public class MainActivity extends AppCompatActivity {
         tvJump.setText("我来啦。。。。");
         tvJump.setOnClickListener(v -> {
             startActivity(new Intent(this, DemoListActivity.class));
-            finish();
         });
 
         findViewById(R.id.button_linearlayout)
                 .setOnClickListener(v -> {
                     startActivity(new Intent(this, LayoutActivity.class));
-                    finish();
                 });
     }
 
