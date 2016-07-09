@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.apkfuns.logutils.LogUtils;
 import com.pythoncat.listdemo.adapter.RvAdapter;
-import com.pythoncat.listdemo.service.DataUtils;
+import com.pythoncat.listdemo.service.LoadApi;
 import com.pythoncat.listdemo.utils.RxJavaUtil;
 
 import java.lang.annotation.Retention;
@@ -23,9 +23,7 @@ import java.util.Map;
 
 import rx.Observable;
 import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.schedulers.Schedulers;
 
 public class DemoListActivity extends AppCompatActivity {
 
@@ -113,9 +111,7 @@ public class DemoListActivity extends AppCompatActivity {
                 (() -> {
                             LogUtils.e("加载更多。。。。");
                             RxJavaUtil.close(loadMoreSub);
-                            loadMoreSub = Observable.just(DataUtils.loadMore())
-                                    .subscribeOn(Schedulers.io())
-                                    .observeOn(AndroidSchedulers.mainThread())
+                            loadMoreSub = LoadApi.loadMoreApi()
                                     .subscribe(this::loadMore,
                                             onError(),
                                             () -> onComplete());
@@ -146,9 +142,7 @@ public class DemoListActivity extends AppCompatActivity {
 
     private void refresh() {
         RxJavaUtil.close(refreshSub);
-        refreshSub = Observable.just(DataUtils.refresh())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        refreshSub = LoadApi.refreshApi()
                 .subscribe(data -> {
                             if (adapter == null) throw new NullPointerException("adapter is null!");
                             if (data.size() == 0)
@@ -163,4 +157,5 @@ public class DemoListActivity extends AppCompatActivity {
                             onComplete();
                         });
     }
+
 }

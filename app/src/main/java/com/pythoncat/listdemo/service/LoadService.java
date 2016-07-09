@@ -1,7 +1,5 @@
 package com.pythoncat.listdemo.service;
 
-import android.os.SystemClock;
-
 import com.apkfuns.logutils.LogUtils;
 import com.pythoncat.listdemo.Bean;
 import com.pythoncat.listdemo.Room;
@@ -17,7 +15,7 @@ import rx.Observable;
  * Created by pythonCat on 2016/7/6.
  * 获取服务器数据！！！
  */
-public class DataUtils {
+public class LoadService {
 
     /**
      * 初次获取数据
@@ -77,7 +75,7 @@ public class DataUtils {
      */
     private static List<Bean> all() {
 
-        SystemClock.sleep(4000);
+//        SystemClock.sleep(4000);
         ArrayList<Bean> list = new ArrayList<>();
         for (int i = 0; i < 300; i++) {
             Bean obj = new Bean();
