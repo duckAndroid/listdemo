@@ -1,4 +1,4 @@
-package com.pythoncat.listdemo;
+package com.pythoncat.listdemo.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.pythoncat.listdemo.R;
 import com.pythoncat.listdemo.utils.DpUtils;
 
 /**

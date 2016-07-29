@@ -3,6 +3,8 @@ package com.pythoncat.listdemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.pythoncat.listdemo.view.CombLayout;
+
 public class LayoutActivity extends AppCompatActivity {
 
     private CombLayout cLayout;
